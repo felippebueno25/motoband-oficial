@@ -84,9 +84,6 @@
 
     .feature {
       border-top: 1px solid var(--line);
-      display: grid;
-      gap: 44px;
-      grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr);
       padding: 28px 0 120px;
     }
     .feature-visual { min-width: 0; }
@@ -175,44 +172,17 @@
       padding-top: 7px;
       text-transform: uppercase;
     }
-    .feature-copy { align-self: end; }
-    .feature-copy h2 { font-size: clamp(2rem, 4vw, 3.8rem); letter-spacing: -.07em; line-height: .95; margin: 18px 0; }
-    .feature-copy p { color: var(--gray-500); font-size: .92rem; margin: 0 0 24px; }
-    .button {
-      border: 1px solid var(--white);
-      display: inline-block;
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .13em;
-      padding: 13px 16px;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-    .button:hover { background: var(--white); color: var(--black); }
-
     section.content-section { border-top: 1px solid var(--line); padding: 72px 0 110px; }
     .section-heading { align-items: baseline; display: flex; justify-content: space-between; margin-bottom: 44px; }
     h2 { font-size: clamp(2.3rem, 5vw, 4.5rem); letter-spacing: -.08em; line-height: .9; margin: 0; }
-    .release-grid { display: grid; gap: 80px; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); }
+    .release-grid { display: block; }
     .release-copy p { color: var(--gray-100); font-size: 1.05rem; margin: 0 0 22px; max-width: 620px; }
     .release-copy p:first-child::first-letter { font-size: 3.7rem; font-weight: 700; float: left; line-height: .8; margin: 8px 8px 0 0; }
-    .credits { border-top: 1px solid var(--line); }
-    .credit-row { border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 13px 0; }
-    .credit-row span:first-child { color: var(--gray-500); }
-    .credit-row span:last-child { text-align: right; }
-
-    .tracks { display: grid; gap: 1px; grid-template-columns: repeat(3, 1fr); }
-    .track {
-      background: var(--gray-800);
-      min-height: 270px;
-      padding: 22px;
-      position: relative;
-    }
-    .track:hover { background: #2b2b2b; }
-    .track-number { color: var(--gray-500); font-size: .72rem; }
-    .track h3 { bottom: 48px; font-size: 1.55rem; left: 22px; letter-spacing: -.05em; margin: 0; position: absolute; }
-    .track p { bottom: 20px; color: var(--gray-500); font-size: .7rem; left: 22px; margin: 0; position: absolute; text-transform: uppercase; }
-    .track::after { border: 1px solid var(--white); border-radius: 50%; bottom: 18px; content: "↗"; font-size: .8rem; height: 28px; line-height: 25px; position: absolute; right: 20px; text-align: center; width: 28px; }
+    .demos { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+    .demo { background: var(--gray-800); padding: 12px; }
+    .demo iframe { aspect-ratio: 16 / 9; border: 0; display: block; width: 100%; }
+    .demo h3 { font-size: 1.1rem; letter-spacing: -.04em; margin: 15px 4px 2px; }
+    .demo p { color: var(--gray-500); font-size: .65rem; letter-spacing: .12em; margin: 0 4px 4px; text-transform: uppercase; }
 
     footer { border-top: 1px solid var(--line); padding: 36px 0 50px; }
     .footer-grid { align-items: end; display: flex; justify-content: space-between; }
@@ -228,12 +198,10 @@
       .nav a { font-size: .6rem; }
       .hero { padding-top: 80px; }
       h1 { margin-left: -4px; }
-      .hero-intro, .feature, .release-grid { grid-template-columns: 1fr; }
+      .hero-intro { grid-template-columns: 1fr; }
       .hero-intro aside { max-width: 260px; }
-      .feature { gap: 32px; padding-bottom: 80px; }
-      .release-grid { gap: 50px; }
-      .tracks { grid-template-columns: 1fr; }
-      .track { min-height: 180px; }
+      .feature { padding-bottom: 80px; }
+      .demos { grid-template-columns: 1fr; }
       .footer-grid { align-items: start; flex-direction: column; gap: 26px; }
     }
   </style>
@@ -287,11 +255,6 @@
             <figure><img src="assets/gallery/9.jpg" alt="Registro fotográfico da Môto" loading="lazy"><figcaption>09 / noite</figcaption></figure>
           </div>
         </div>
-        <div class="feature-copy">
-          <span class="section-kicker">Ao vivo / 01</span>
-          <p>Um recorte da formação em movimento: volume, suor e presença. O registro ao vivo antecipa o pulso de <em>Fé no Caos</em>.</p>
-          <a class="button" href="https://www.youtube.com/watch?v=cwEIRVBcqXo" target="_blank" rel="noreferrer">Abrir registro</a>
-        </div>
       </section>
 
       <section class="content-section" id="release" aria-labelledby="release-title">
@@ -303,14 +266,7 @@
           <div class="release-copy">
             <h2 id="release-title">Cinco vozes.<br>Um mesmo caos.</h2>
             <p>A Môto nasceu do encontro entre peso e urgência. Em início de circulação e produção autoral, a banda transforma inquietação cotidiana em canções diretas, guiadas por guitarras marcantes e uma base rítmica sem concessões.</p>
-            <p><em>Fé no Caos</em> é o primeiro EP oficial do grupo. Gravado de forma independente, o trabalho busca preservar a tensão e a organicidade de uma banda que acontece no palco — sem polir demais o que precisa permanecer vivo.</p>
-          </div>
-          <div class="credits" aria-label="Formação da banda">
-            <div class="credit-row"><span>Vocal</span><span>Renan Nunes</span></div>
-            <div class="credit-row"><span>Guitarra</span><span>Felippe Bueno</span></div>
-            <div class="credit-row"><span>Guitarra</span><span>Giuseppe Piovesan</span></div>
-            <div class="credit-row"><span>Baixo</span><span>Rafael Gonçalves</span></div>
-            <div class="credit-row"><span>Bateria</span><span>Caio Fábio</span></div>
+            <p><em>Fé no Caos</em> é o primeiro EP oficial do grupo. Gravado de forma independente, o trabalho busca preservar a tensão e a organicidade de uma banda que acontece no palco — sem polir demais o que precisa permanecer vivo. A formação reúne Renan Nunes nos vocais, Felippe Bueno e Giuseppe Piovesan nas guitarras, Rafael Gonçalves no baixo e Caio Fábio na bateria.</p>
           </div>
         </div>
       </section>
@@ -320,23 +276,26 @@
           <h2 id="music-title">Material</h2>
           <span class="section-kicker">02 — 03</span>
         </div>
-        <div class="tracks">
-          <a class="track" href="https://www.youtube.com/watch?v=fw8H37NlslU" target="_blank" rel="noreferrer">
-            <span class="track-number">01 / demo</span><h3>Pororoca</h3><p>Ouvir no YouTube ↗</p>
-          </a>
-          <a class="track" href="https://www.youtube.com/watch?v=onTDsUSrJ0E" target="_blank" rel="noreferrer">
-            <span class="track-number">02 / demo</span><h3>Ratoeira</h3><p>Ouvir no YouTube ↗</p>
-          </a>
-          <a class="track" href="https://www.youtube.com/watch?v=xSP5WTqde9g" target="_blank" rel="noreferrer">
-            <span class="track-number">03 / demo</span><h3>Cachorro do Mato</h3><p>Ouvir no YouTube ↗</p>
-          </a>
+        <div class="demos">
+          <article class="demo">
+            <iframe src="https://www.youtube.com/embed/fw8H37NlslU" title="Môto — Pororoca (Demo)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Pororoca</h3><p>Demo / 01</p>
+          </article>
+          <article class="demo">
+            <iframe src="https://www.youtube.com/embed/onTDsUSrJ0E" title="Môto — Ratoeira (Ideias Ideais)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Ratoeira</h3><p>Demo / 02</p>
+          </article>
+          <article class="demo">
+            <iframe src="https://www.youtube.com/embed/xSP5WTqde9g" title="Môto — Cachorro do Mato" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Cachorro do Mato</h3><p>Demo / 03</p>
+          </article>
         </div>
       </section>
     </main>
 
     <footer id="contato">
       <div class="footer-grid">
-        <p>Booking e contato profissional<br><strong>contato@bandamoto.com</strong></p>
+        <p>Booking e contato profissional<br><strong>motobandcontato@gmail.com</strong></p>
         <div class="socials" aria-label="Redes sociais">
           <a href="https://www.instagram.com/motoband_oficial/" target="_blank" rel="noreferrer">Instagram ↗</a>
           <a href="https://www.youtube.com/@motoband_oficial" target="_blank" rel="noreferrer">YouTube ↗</a>
