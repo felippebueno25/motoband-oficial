@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Môto — Fé no Caos. Página oficial do primeiro EP da banda.">
+  <title>Môto — Fé no Caos</title>
+  <style>
+    :root {
+      --black: #000;
+      --white: #fff;
+      --gray-100: #f2f2f2;
+      --gray-500: #808080;
+      --gray-800: #1f1f1f;
+      --line: rgba(255, 255, 255, .18);
+      --max-width: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+    a { color: inherit; }
+    .site-shell { width: min(calc(100% - 48px), var(--max-width)); margin: auto; }
+
+    .topbar {
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      min-height: 76px;
+    }
+    .wordmark {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -.07em;
+      text-decoration: none;
+    }
+    .nav { display: flex; gap: 28px; }
+    .nav a, .text-link {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav a { color: var(--gray-500); }
+    .nav a:hover, .text-link:hover { color: var(--white); }
+
+    .hero {
+      background: linear-gradient(90deg, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .62) 52%, rgba(0, 0, 0, .78) 100%), url("assets/moto-header.jpg") center 42% / cover;
+      border-bottom: 1px solid var(--line);
+      margin-left: calc((100vw - min(calc(100vw - 48px), var(--max-width))) / -2);
+      margin-right: calc((100vw - min(calc(100vw - 48px), var(--max-width))) / -2);
+      padding: clamp(64px, 11vw, 140px) max(24px, calc((100vw - var(--max-width)) / 2)) 90px;
+    }
+    .eyebrow, .section-kicker {
+      color: var(--gray-500);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(4rem, 11vw, 9rem);
+      letter-spacing: -.105em;
+      line-height: .78;
+      margin: 28px 0 42px -10px;
+    }
+    .hero-intro {
+      align-items: end;
+      display: grid;
+      gap: 32px;
+      grid-template-columns: 1fr 280px;
+    }
+    .hero-intro p { color: var(--gray-100); font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.2; margin: 0; max-width: 620px; }
+    .hero-intro aside { color: var(--gray-500); font-size: .78rem; }
+    .hero-intro aside strong { color: var(--white); display: block; font-size: .85rem; margin-top: 5px; }
+
+    .feature {
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 44px;
+      grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr);
+      padding: 28px 0 120px;
+    }
+    .video-frame {
+      aspect-ratio: 16 / 9;
+      background: var(--gray-800);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      position: relative;
+    }
+    .video-frame iframe { border: 0; height: 100%; width: 100%; }
+    .video-frame.is-local iframe { display: none; }
+    .video-frame.is-local .video-local-fallback { display: flex; }
+    .video-local-fallback {
+      align-items: center;
+      background: #111 url("https://i.ytimg.com/vi/cwEIRVBcqXo/maxresdefault.jpg") center / cover;
+      display: none;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+      text-align: center;
+    }
+    .video-local-fallback::before {
+      background: rgba(0, 0, 0, .68);
+      content: "";
+      inset: 0;
+      position: absolute;
+    }
+    .video-local-fallback > * { position: relative; }
+    .video-fallback {
+      align-items: center;
+      background: radial-gradient(circle at 70% 25%, #404040 0, #1f1f1f 28%, #080808 70%);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .video-fallback .play {
+      align-items: center;
+      border: 1px solid var(--white);
+      border-radius: 50%;
+      display: flex;
+      font-size: 1.2rem;
+      height: 58px;
+      justify-content: center;
+      margin-bottom: 18px;
+      padding-left: 3px;
+      width: 58px;
+    }
+    .video-fallback p { color: var(--gray-500); font-size: .8rem; margin: 0 0 18px; }
+    .video-fallback a { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+    .feature-copy { align-self: end; }
+    .feature-copy h2 { font-size: clamp(2rem, 4vw, 3.8rem); letter-spacing: -.07em; line-height: .95; margin: 18px 0; }
+    .feature-copy p { color: var(--gray-500); font-size: .92rem; margin: 0 0 24px; }
+    .button {
+      border: 1px solid var(--white);
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      padding: 13px 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .button:hover { background: var(--white); color: var(--black); }
+
+    section.content-section { border-top: 1px solid var(--line); padding: 72px 0 110px; }
+    .section-heading { align-items: baseline; display: flex; justify-content: space-between; margin-bottom: 44px; }
+    h2 { font-size: clamp(2.3rem, 5vw, 4.5rem); letter-spacing: -.08em; line-height: .9; margin: 0; }
+    .release-grid { display: grid; gap: 80px; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); }
+    .release-copy p { color: var(--gray-100); font-size: 1.05rem; margin: 0 0 22px; max-width: 620px; }
+    .release-copy p:first-child::first-letter { font-size: 3.7rem; font-weight: 700; float: left; line-height: .8; margin: 8px 8px 0 0; }
+    .credits { border-top: 1px solid var(--line); }
+    .credit-row { border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 13px 0; }
+    .credit-row span:first-child { color: var(--gray-500); }
+    .credit-row span:last-child { text-align: right; }
+
+    .tracks { display: grid; gap: 1px; grid-template-columns: repeat(3, 1fr); }
+    .track {
+      background: var(--gray-800);
+      min-height: 270px;
+      padding: 22px;
+      position: relative;
+    }
+    .track:hover { background: #2b2b2b; }
+    .track-number { color: var(--gray-500); font-size: .72rem; }
+    .track h3 { bottom: 48px; font-size: 1.55rem; left: 22px; letter-spacing: -.05em; margin: 0; position: absolute; }
+    .track p { bottom: 20px; color: var(--gray-500); font-size: .7rem; left: 22px; margin: 0; position: absolute; text-transform: uppercase; }
+    .track::after { border: 1px solid var(--white); border-radius: 50%; bottom: 18px; content: "↗"; font-size: .8rem; height: 28px; line-height: 25px; position: absolute; right: 20px; text-align: center; width: 28px; }
+
+    footer { border-top: 1px solid var(--line); padding: 36px 0 50px; }
+    .footer-grid { align-items: end; display: flex; justify-content: space-between; }
+    footer p { color: var(--gray-500); font-size: .78rem; margin: 0; }
+    footer p strong { color: var(--white); font-weight: 400; }
+    .socials { display: flex; gap: 22px; }
+    .socials a { font-size: .7rem; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
+
+    @media (max-width: 720px) {
+      .site-shell { width: min(calc(100% - 32px), var(--max-width)); }
+      .topbar { min-height: 64px; }
+      .nav { gap: 14px; }
+      .nav a { font-size: .6rem; }
+      .hero { padding-top: 80px; }
+      h1 { margin-left: -4px; }
+      .hero-intro, .feature, .release-grid { grid-template-columns: 1fr; }
+      .hero-intro aside { max-width: 260px; }
+      .feature { gap: 32px; padding-bottom: 80px; }
+      .release-grid { gap: 50px; }
+      .tracks { grid-template-columns: 1fr; }
+      .track { min-height: 180px; }
+      .footer-grid { align-items: start; flex-direction: column; gap: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#" aria-label="Môto — início">Môto</a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#release">Release</a>
+        <a href="#musicas">Músicas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <span class="eyebrow">Banda independente · Rio de Janeiro, Zona Oeste</span>
+        <h1 id="hero-title">Fé<br>no Caos</h1>
+        <div class="hero-intro">
+          <p>O primeiro EP da Môto está em construção. Guitarras densas, urgência e o som de cinco pessoas tocando juntas.</p>
+          <aside>PRÓXIMO LANÇAMENTO<strong>EP de estreia · em breve</strong></aside>
+        </div>
+      </section>
+
+      <section class="feature" aria-labelledby="live-title">
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/cwEIRVBcqXo?si=0iR69YqNXcEwHItD"
+            title="Môto — Fé no Caos, ao vivo em Bangu (Festa do Porco 2026)"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <div class="video-local-fallback">
+            <div class="play" aria-hidden="true">▶</div>
+            <p id="live-title">Abra a página pelo servidor para reproduzir o vídeo incorporado.</p>
+            <a class="text-link" href="https://www.youtube.com/watch?v=cwEIRVBcqXo" target="_blank" rel="noreferrer">Assistir no YouTube ↗</a>
+          </div>
+        </div>
+        <div class="feature-copy">
+          <span class="section-kicker">Ao vivo / 01</span>
+          <p>Um recorte da formação em movimento: volume, suor e presença. O registro ao vivo antecipa o pulso de <em>Fé no Caos</em>.</p>
+          <a class="button" href="https://www.youtube.com/watch?v=cwEIRVBcqXo" target="_blank" rel="noreferrer">Abrir registro</a>
+        </div>
+      </section>
+
+      <section class="content-section" id="release" aria-labelledby="release-title">
+        <div class="section-heading">
+          <span class="section-kicker">Release</span>
+          <span class="section-kicker">01 — 03</span>
+        </div>
+        <div class="release-grid">
+          <div class="release-copy">
+            <h2 id="release-title">Cinco vozes.<br>Um mesmo caos.</h2>
+            <p>A Môto nasceu do encontro entre peso e urgência. Em início de circulação e produção autoral, a banda transforma inquietação cotidiana em canções diretas, guiadas por guitarras marcantes e uma base rítmica sem concessões.</p>
+            <p><em>Fé no Caos</em> é o primeiro EP oficial do grupo. Gravado de forma independente, o trabalho busca preservar a tensão e a organicidade de uma banda que acontece no palco — sem polir demais o que precisa permanecer vivo.</p>
+          </div>
+          <div class="credits" aria-label="Formação da banda">
+            <div class="credit-row"><span>Vocal</span><span>Renan Nunes</span></div>
+            <div class="credit-row"><span>Guitarra</span><span>Felippe Bueno</span></div>
+            <div class="credit-row"><span>Guitarra</span><span>Giuseppe Piovesan</span></div>
+            <div class="credit-row"><span>Baixo</span><span>Rafael Gonçalves</span></div>
+            <div class="credit-row"><span>Bateria</span><span>Caio Fábio</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="musicas" aria-labelledby="music-title">
+        <div class="section-heading">
+          <h2 id="music-title">Material</h2>
+          <span class="section-kicker">02 — 03</span>
+        </div>
+        <div class="tracks">
+          <a class="track" href="https://www.youtube.com/watch?v=fw8H37NlslU" target="_blank" rel="noreferrer">
+            <span class="track-number">01 / demo</span><h3>Pororoca</h3><p>Ouvir no YouTube ↗</p>
+          </a>
+          <a class="track" href="https://www.youtube.com/watch?v=onTDsUSrJ0E" target="_blank" rel="noreferrer">
+            <span class="track-number">02 / demo</span><h3>Ratoeira</h3><p>Ouvir no YouTube ↗</p>
+          </a>
+          <a class="track" href="https://www.youtube.com/watch?v=xSP5WTqde9g" target="_blank" rel="noreferrer">
+            <span class="track-number">03 / demo</span><h3>Cachorro do Mato</h3><p>Ouvir no YouTube ↗</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contato">
+      <div class="footer-grid">
+        <p>Booking e contato profissional<br><strong>contato@bandamoto.com</strong></p>
+        <div class="socials" aria-label="Redes sociais">
+          <a href="https://www.instagram.com/motoband_oficial/" target="_blank" rel="noreferrer">Instagram ↗</a>
+          <a href="https://www.youtube.com/@motoband_oficial" target="_blank" rel="noreferrer">YouTube ↗</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    if (window.location.protocol === "file:") {
+      var videoFrame = document.querySelector(".video-frame");
+      if (videoFrame) videoFrame.classList.add("is-local");
+    }
+  </script>
+</body>
+</html>
