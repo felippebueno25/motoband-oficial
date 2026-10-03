@@ -34,13 +34,18 @@
       display: flex;
       justify-content: space-between;
       min-height: 76px;
+      position: relative;
     }
     .wordmark {
       display: block;
       line-height: 0;
+      left: 50%;
+      position: absolute;
       text-decoration: none;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
-    .wordmark img { display: block; height: auto; width: 86px; }
+    .wordmark img { display: block; height: auto; width: 220px; }
     .nav { display: flex; gap: 28px; }
     .nav a, .text-link {
       font-size: .72rem;
@@ -53,11 +58,13 @@
     .nav a:hover, .text-link:hover { color: var(--white); }
 
     .hero {
-      background: linear-gradient(90deg, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .62) 52%, rgba(0, 0, 0, .78) 100%), url("assets/moto-header.jpg") center 42% / cover;
+      background: linear-gradient(90deg, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .62) 52%, rgba(0, 0, 0, .78) 100%), url("assets/moto-header2.jpg") center 45% / cover;
       border-bottom: 1px solid var(--line);
       margin-left: calc((100vw - min(calc(100vw - 48px), var(--max-width))) / -2);
       margin-right: calc((100vw - min(calc(100vw - 48px), var(--max-width))) / -2);
-      padding: clamp(64px, 11vw, 140px) max(24px, calc((100vw - var(--max-width)) / 2)) 90px;
+      min-height: clamp(280px, 34vw, 410px);
+      padding: 0 max(24px, calc((100vw - var(--max-width)) / 2));
+      position: relative;
     }
     .eyebrow, .section-kicker {
       color: var(--gray-500);
@@ -194,9 +201,10 @@
     @media (max-width: 720px) {
       .site-shell { width: min(calc(100% - 32px), var(--max-width)); }
       .topbar { min-height: 64px; }
+      .wordmark img { width: 160px; }
       .nav { gap: 14px; }
       .nav a { font-size: .6rem; }
-      .hero { padding-top: 80px; }
+      .hero { min-height: 290px; }
       h1 { margin-left: -4px; }
       .hero-intro { grid-template-columns: 1fr; }
       .hero-intro aside { max-width: 260px; }
@@ -209,7 +217,6 @@
 <body>
   <div class="site-shell">
     <header class="topbar">
-      <a class="wordmark" href="#" aria-label="Môto — início"><img src="assets/moto-logo-transparent.png" alt="Môto"></a>
       <nav class="nav" aria-label="Navegação principal">
         <a href="#release">Release</a>
         <a href="#musicas">Músicas</a>
@@ -218,6 +225,10 @@
     </header>
 
     <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <a class="wordmark" href="#" aria-label="Môto — início"><img src="assets/moto-logo-transparent.png" alt="Môto"></a>
+      </section>
+
         <section class="feature" aria-labelledby="live-title">
         <div class="feature-visual">
           <div class="video-frame">
