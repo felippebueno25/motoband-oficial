@@ -58,7 +58,7 @@
     .nav a:hover, .text-link:hover { color: var(--white); }
 
     .hero {
-      background: linear-gradient(90deg, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .62) 52%, rgba(0, 0, 0, .78) 100%), url("assets/moto-header2.jpg") center 45% / cover;
+      background: linear-gradient(90deg, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .62) 52%, rgba(0, 0, 0, .78) 100%), url("assets/moto-header2.webp") center 45% / cover;
       border-bottom: 1px solid var(--line);
       margin-left: calc((100vw - min(calc(100vw - 48px), var(--max-width))) / -2);
       margin-right: calc((100vw - min(calc(100vw - 48px), var(--max-width))) / -2);
@@ -170,6 +170,7 @@
       transition: filter .2s, opacity .2s;
       width: 100%;
     }
+    .gallery picture { display: block; }
     .gallery img:hover,
     .gallery img:focus { filter: grayscale(0%); opacity: 1; }
     .gallery figcaption {
@@ -226,7 +227,7 @@
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <a class="wordmark" href="#" aria-label="Môto — início"><img src="assets/moto-logo-transparent.png" alt="Môto"></a>
+        <a class="wordmark" href="#" aria-label="Môto — início"><picture><source srcset="assets/moto-logo-transparent.webp" type="image/webp"><img src="assets/moto-logo-transparent.png" alt="Môto"></picture></a>
       </section>
 
         <section class="feature" aria-labelledby="live-title">
@@ -246,15 +247,15 @@
             </div>
           </div>
           <div class="gallery" aria-label="Galeria de fotos da Môto">
-            <figure><img src="assets/gallery/1.jpg" alt="Môto em apresentação ao vivo" loading="lazy"></figure>
-            <figure><img src="assets/gallery/2.jpg" alt="Público durante apresentação da Môto" loading="lazy"></figure>
-            <figure><img src="assets/gallery/3.jpg" alt="Detalhe de apresentação da Môto" loading="lazy"></figure>
-            <figure><img src="assets/gallery/4.jpg" alt="Môto tocando ao vivo" loading="lazy"></figure>
-            <figure><img src="assets/gallery/5.jpg" alt="Registro da noite da Môto" loading="lazy"></figure>
-            <figure><img src="assets/gallery/6.jpg" alt="Público no show da Môto" loading="lazy"></figure>
-            <figure><img src="assets/gallery/7.jpg" alt="Músico da Môto em apresentação" loading="lazy"></figure>
-            <figure><img src="assets/gallery/8.jpg" alt="Cena do show da Môto" loading="lazy"></figure>
-            <figure><img src="assets/gallery/9.jpg" alt="Registro fotográfico da Môto" loading="lazy"></figure>
+            <figure><picture><source srcset="assets/gallery/1.webp" type="image/webp"><img src="assets/gallery/1.jpg" alt="Môto em apresentação ao vivo" loading="lazy"></picture></figure>
+            <figure><picture><source srcset="assets/gallery/2.webp" type="image/webp"><img src="assets/gallery/2.jpg" alt="Público durante apresentação da Môto" loading="lazy"></picture></figure>
+            <figure><picture><source srcset="assets/gallery/3.webp" type="image/webp"><img src="assets/gallery/3.jpg" alt="Detalhe de apresentação da Môto" loading="lazy"></picture></figure>
+            <figure><picture><source srcset="assets/gallery/4.webp" type="image/webp"><img src="assets/gallery/4.jpg" alt="Môto tocando ao vivo" loading="lazy"></picture></figure>
+            <figure><picture><source srcset="assets/gallery/5.webp" type="image/webp"><img src="assets/gallery/5.jpg" alt="Registro da noite da Môto" loading="lazy"></picture></figure>
+            <figure><picture><source srcset="assets/gallery/6.webp" type="image/webp"><img src="assets/gallery/6.jpg" alt="Público no show da Môto" loading="lazy"></picture></figure>
+            <figure><picture><source srcset="assets/gallery/7.webp" type="image/webp"><img src="assets/gallery/7.jpg" alt="Músico da Môto em apresentação" loading="lazy"></picture></figure>
+            <figure><picture><source srcset="assets/gallery/8.webp" type="image/webp"><img src="assets/gallery/8.jpg" alt="Cena do show da Môto" loading="lazy"></picture></figure>
+            <figure><picture><source srcset="assets/gallery/9.webp" type="image/webp"><img src="assets/gallery/9.jpg" alt="Registro fotográfico da Môto" loading="lazy"></picture></figure>
           </div>
         </div>
       </section>
