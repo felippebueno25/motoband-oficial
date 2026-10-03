@@ -36,11 +36,11 @@
       min-height: 76px;
     }
     .wordmark {
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: -.07em;
+      display: block;
+      line-height: 0;
       text-decoration: none;
     }
+    .wordmark img { display: block; height: auto; width: 86px; }
     .nav { display: flex; gap: 28px; }
     .nav a, .text-link {
       font-size: .72rem;
@@ -209,7 +209,7 @@
 <body>
   <div class="site-shell">
     <header class="topbar">
-      <a class="wordmark" href="#" aria-label="Môto — início">Môto</a>
+      <a class="wordmark" href="#" aria-label="Môto — início"><img src="assets/moto-logo-transparent.png" alt="Môto"></a>
       <nav class="nav" aria-label="Navegação principal">
         <a href="#release">Release</a>
         <a href="#musicas">Músicas</a>
@@ -218,16 +218,7 @@
     </header>
 
     <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <span class="eyebrow">Banda independente · Rio de Janeiro, Zona Oeste</span>
-        <h1 id="hero-title">Fé<br>no Caos</h1>
-        <div class="hero-intro">
-          <p>O primeiro EP da Môto está em construção. Guitarras densas, urgência e o som de cinco pessoas tocando juntas.</p>
-          <aside>PRÓXIMO LANÇAMENTO<strong>EP de estreia · em breve</strong></aside>
-        </div>
-      </section>
-
-      <section class="feature" aria-labelledby="live-title">
+        <section class="feature" aria-labelledby="live-title">
         <div class="feature-visual">
           <div class="video-frame">
             <iframe
